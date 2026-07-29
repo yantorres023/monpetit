@@ -12,6 +12,11 @@
             box-sizing: border-box;
         }
 
+        /* ===== SCROLL SUAVE ===== */
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
             background: #FFFCF9;
@@ -125,15 +130,12 @@
             text-decoration: none;
         }
 
+        /* ===== LOGO IMAGEM ===== */
         .logo-icon {
             width: 60px;
             height: 60px;
-            background: var(--pink-light);
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
+            object-fit: cover;
             border: 2px dashed var(--pink);
         }
 
@@ -196,6 +198,11 @@
 
         nav a:hover {
             color: var(--pink);
+        }
+
+        /* ===== ESPAÇO PARA O HEADER FIXO ===== */
+        section[id] {
+            scroll-margin-top: 80px;
         }
 
         /* ===== HERO ===== */
@@ -313,25 +320,21 @@
             background: var(--white);
             transform: rotateY(180deg);
             border: 2px dashed var(--pink);
+            padding: 0.5rem;
         }
 
         .flip-card-back p {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: #aaa;
             text-align: center;
+            margin-top: 0.3rem;
         }
 
-        .flip-card-back .image-placeholder {
+        .flip-card-back img {
             width: 100%;
-            height: 120px;
-            background: var(--pink-light);
+            height: 130px;
+            object-fit: cover;
             border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--pink);
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
         }
 
         .flip-card-front .emoji {
@@ -498,6 +501,11 @@
             .logo-text .petit-ju {
                 font-size: 1.4rem;
             }
+
+            .logo-icon {
+                width: 50px;
+                height: 50px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -517,6 +525,11 @@
             .contato-card {
                 min-width: 100%;
             }
+
+            .logo-icon {
+                width: 45px;
+                height: 45px;
+            }
         }
 
         /* ===== ANIMAÇÕES ===== */
@@ -535,7 +548,8 @@
 <!-- ===== HEADER ===== -->
 <header>
     <a href="#" class="logo">
-        <div class="logo-icon">👶👶</div>
+        <!-- 🖼️ LOGO: troque o src pelo caminho da sua imagem -->
+        <img class="logo-icon" src="sua-logo-aqui.jpg" alt="Mon Petit-Jú">
         <div class="logo-text">
             <span class="mon">Mon</span>
             <span class="petit-ju">Petit-<span>Jú</span></span>
@@ -578,10 +592,9 @@
                     <p>5 peças</p>
                 </div>
                 <div class="flip-card-back">
-                    <div class="image-placeholder">
-                        📸 Sua foto aqui
-                    </div>
-                    <p>Clique para editar</p>
+                    <!-- 🖼️ IMAGEM KIT: troque o src pelo caminho da foto -->
+                    <img src="sua-foto-kit.jpg" alt="Kit Maternidade">
+                    <p>Kit Maternidade Premium</p>
                 </div>
             </div>
         </div>
@@ -595,10 +608,9 @@
                     <p>Algodão egípcio</p>
                 </div>
                 <div class="flip-card-back">
-                    <div class="image-placeholder">
-                        📸 Sua foto aqui
-                    </div>
-                    <p>Clique para editar</p>
+                    <!-- 🖼️ IMAGEM MANTA: troque o src pelo caminho da foto -->
+                    <img src="sua-foto-manta.jpg" alt="Manta Baby">
+                    <p>Manta Baby Algodão</p>
                 </div>
             </div>
         </div>
@@ -612,10 +624,9 @@
                     <p>Manga longa/curta</p>
                 </div>
                 <div class="flip-card-back">
-                    <div class="image-placeholder">
-                        📸 Sua foto aqui
-                    </div>
-                    <p>Clique para editar</p>
+                    <!-- 🖼️ IMAGEM BODY: troque o src pelo caminho da foto -->
+                    <img src="sua-foto-body.jpg" alt="Body Manga Longa">
+                    <p>Body Manga Longa</p>
                 </div>
             </div>
         </div>
@@ -629,10 +640,9 @@
                     <p>Com capuz</p>
                 </div>
                 <div class="flip-card-back">
-                    <div class="image-placeholder">
-                        📸 Sua foto aqui
-                    </div>
-                    <p>Clique para editar</p>
+                    <!-- 🖼️ IMAGEM TOALHA: troque o src pelo caminho da foto -->
+                    <img src="sua-foto-toalha.jpg" alt="Toalha com Capuz">
+                    <p>Toalha com Capuz</p>
                 </div>
             </div>
         </div>
