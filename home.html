@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Petit-Jú | Enxoval Artesanal</title>
+    <style>
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            background: #FFFCF9;
+            color: #2C2C2C;
+            line-height: 1.6;
+        }
+
+        /* ===== COLOR VARIABLES ===== */
+        :root {
+            --pink: #F4B8C7;
+            --pink-light: #FCE4EC;
+            --yellow: #FDF5C9;
+            --peach: #FDE8D0;
+            --beige: #F5E6D3;
+            --brown: #D4B896;
+            --brown-dark: #C4A882;
+            --black: #2C2C2C;
+            --white: #FFFFFF;
+            --shadow: rgba(244, 184, 199, 0.2);
+        }
+
+        /* ===== TIPOGRAFIA ===== */
+        h1, h2, h3 {
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            font-style: italic;
+            color: var(--black);
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-family: 'Georgia', serif;
+            color: var(--black);
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        h2::after {
+            content: '✦';
+            display: block;
+            font-size: 1.2rem;
+            color: var(--pink);
+            margin-top: 0.3rem;
+        }
+
+        /* ===== BOTÕES ===== */
+        .btn {
+            display: inline-block;
+            background: var(--pink);
+            color: var(--white);
+            padding: 12px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            border: 2px solid var(--pink);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: var(--pink);
+            border-color: var(--pink);
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            border-color: #25D366;
+        }
+
+        .btn-whatsapp:hover {
+            background: transparent;
+            color: #25D366;
+        }
+
+        .btn-instagram {
+            background: linear-gradient(45deg, #F58529, #DD2A7B, #8134AF);
+            border-color: #DD2A7B;
+        }
+
+        .btn-instagram:hover {
+            background: transparent;
+            color: #DD2A7B;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            background: var(--white);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 20px var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--pink-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            border: 2px dashed var(--pink);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .logo-text .mon {
+            font-size: 0.8rem;
+            font-family: 'Georgia', serif;
+            color: var(--pink);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            line-height: 1;
+        }
+
+        .logo-text .petit-ju {
+            font-size: 1.8rem;
+            font-family: 'Georgia', serif;
+            font-style: italic;
+            color: var(--black);
+            line-height: 1;
+        }
+
+        .logo-text .petit-ju span {
+            color: var(--pink);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--black);
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--pink);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        nav a:hover {
+            color: var(--pink);
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            background: linear-gradient(135deg, var(--pink-light) 0%, var(--yellow) 50%, var(--peach) 100%);
+            padding: 5rem 5%;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '♡ ✦ ✿ ♡ ✦ ✿';
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.5rem;
+            color: var(--pink);
+            opacity: 0.3;
+            letter-spacing: 20px;
+        }
+
+        .hero-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            font-family: 'Georgia', serif;
+            font-style: italic;
+        }
+
+        .hero h1 span {
+            color: var(--pink);
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            color: #666;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .hero .rainbow-divider {
+            height: 6px;
+            border-radius: 3px;
+            background: linear-gradient(90deg, var(--pink), var(--yellow), var(--beige), var(--pink));
+            margin: 2rem auto;
+            width: 200px;
+        }
+
+        /* ===== CATEGORIAS - FLIP CARDS ===== */
+        .categorias {
+            padding: 4rem 5%;
+            background: var(--white);
+        }
+
+        .categoria-grid {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .flip-card {
+            background: transparent;
+            width: 180px;
+            height: 220px;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s ease;
+            transform-style: preserve-3d;
+        }
+
+        .flip-card.flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            border: 2px solid transparent;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .flip-card-front {
+            background: var(--peach);
+        }
+
+        .flip-card-front:hover {
+            border-color: var(--pink);
+            box-shadow: 0 10px 30px var(--shadow);
+        }
+
+        .flip-card-back {
+            background: var(--white);
+            transform: rotateY(180deg);
+            border: 2px dashed var(--pink);
+        }
+
+        .flip-card-back p {
+            font-size: 0.8rem;
+            color: #aaa;
+            text-align: center;
+        }
+
+        .flip-card-back .image-placeholder {
+            width: 100%;
+            height: 120px;
+            background: var(--pink-light);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--pink);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .flip-card-front .emoji {
+            font-size: 3rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .flip-card-front h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--black);
+            text-align: center;
+        }
+
+        .flip-card-front p {
+            font-size: 0.85rem;
+            color: #888;
+            margin-top: 0.3rem;
+            text-align: center;
+        }
+
+        /* ===== TABELA DE PREÇOS ===== */
+        .precos {
+            padding: 4rem 5%;
+            background: var(--pink-light);
+        }
+
+        .tabela-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 5px 30px var(--shadow);
+        }
+
+        .tabela-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px dashed var(--beige);
+        }
+
+        .tabela-item:last-child {
+            border-bottom: none;
+        }
+
+        .tabela-item .produto {
+            font-weight: 500;
+        }
+
+        .tabela-item .preco {
+            font-weight: 700;
+            color: var(--pink);
+            font-size: 1.1rem;
+        }
+
+        .tabela-cta {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        /* ===== CONTATO ===== */
+        .contato {
+            padding: 4rem 5%;
+            background: var(--white);
+            text-align: center;
+        }
+
+        .contato-grid {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contato-card {
+            background: var(--beige);
+            border-radius: 20px;
+            padding: 2rem;
+            flex: 1;
+            min-width: 220px;
+            max-width: 280px;
+            transition: all 0.3s;
+        }
+
+        .contato-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+        }
+
+        .contato-card .icone {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contato-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contato-card p, .contato-card a {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .contato-card a {
+            text-decoration: none;
+            font-weight: 600;
+            color: var(--black);
+        }
+
+        .contato-card a:hover {
+            color: var(--pink);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--black);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem 5%;
+            font-size: 0.9rem;
+        }
+
+        footer .heart {
+            color: var(--pink);
+        }
+
+        /* ===== RESPONSIVO ===== */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 1rem;
+                gap: 1rem;
+            }
+
+            nav ul {
+                gap: 1.2rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1rem;
+            }
+
+            .flip-card {
+                width: 150px;
+                height: 200px;
+            }
+
+            .tabela-container {
+                padding: 1.5rem;
+            }
+
+            .logo-text .petit-ju {
+                font-size: 1.4rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .categoria-grid {
+                gap: 1rem;
+            }
+
+            .flip-card {
+                width: 130px;
+                height: 180px;
+            }
+
+            .contato-card {
+                min-width: 100%;
+            }
+        }
+
+        /* ===== ANIMAÇÕES ===== */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header>
+    <a href="#" class="logo">
+        <div class="logo-icon">👶👶</div>
+        <div class="logo-text">
+            <span class="mon">Mon</span>
+            <span class="petit-ju">Petit-<span>Jú</span></span>
+        </div>
+    </a>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#catalogo">Catálogo</a></li>
+            <li><a href="#precos">Preços</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <div class="rainbow-divider"></div>
+        <h1>Mon Petit-<span>Jú</span></h1>
+        <p class="subtitle">✨ Enxoval artesanal feito com amor para o seu bebê ✨</p>
+        <p style="color:#888; margin-bottom:2rem;">
+            Peças únicas, delicadas e cheias de carinho para os primeiros momentos
+        </p>
+        <a href="#catalogo" class="btn">Ver Catálogo</a>
+    </div>
+</section>
+
+<!-- ===== CATEGORIAS - FLIP CARDS ===== -->
+<section class="categorias" id="catalogo">
+    <h2>Nosso Enxoval</h2>
+    <div class="categoria-grid">
+
+        <!-- Card 1 - Kit Maternidade -->
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <div class="emoji">🧸</div>
+                    <h3>Kit Maternidade</h3>
+                    <p>5 peças</p>
+                </div>
+                <div class="flip-card-back">
+                    <div class="image-placeholder">
+                        📸 Sua foto aqui
+                    </div>
+                    <p>Clique para editar</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2 - Mantas -->
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <div class="emoji">🛏️</div>
+                    <h3>Mantas & Cobertores</h3>
+                    <p>Algodão egípcio</p>
+                </div>
+                <div class="flip-card-back">
+                    <div class="image-placeholder">
+                        📸 Sua foto aqui
+                    </div>
+                    <p>Clique para editar</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 3 - Bodies -->
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <div class="emoji">👕</div>
+                    <h3>Bodies & Macacões</h3>
+                    <p>Manga longa/curta</p>
+                </div>
+                <div class="flip-card-back">
+                    <div class="image-placeholder">
+                        📸 Sua foto aqui
+                    </div>
+                    <p>Clique para editar</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 4 - Toalhas -->
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <div class="emoji">🛁</div>
+                    <h3>Toalhas & Acessórios</h3>
+                    <p>Com capuz</p>
+                </div>
+                <div class="flip-card-back">
+                    <div class="image-placeholder">
+                        📸 Sua foto aqui
+                    </div>
+                    <p>Clique para editar</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ===== TABELA DE PREÇOS ===== -->
+<section class="precos" id="precos">
+    <h2>Tabela de Preços</h2>
+    <div class="tabela-container">
+        <div class="tabela-item">
+            <span class="produto">🌸 Kit Maternidade Premium (5 peças)</span>
+            <span class="preco">R$ 189,90</span>
+        </div>
+        <div class="tabela-item">
+            <span class="produto">🧸 Manta Baby Algodão Egípcio</span>
+            <span class="preco">R$ 79,90</span>
+        </div>
+        <div class="tabela-item">
+            <span class="produto">👕 Body Manga Longa Estampado</span>
+            <span class="preco">R$ 49,90</span>
+        </div>
+        <div class="tabela-item">
+            <span class="produto">🛁 Toalha com Capuz + Luva</span>
+            <span class="preco">R$ 69,90</span>
+        </div>
+        <div class="tabela-item">
+            <span class="produto">💛 Fraldinha Bordada (unidade)</span>
+            <span class="preco">R$ 29,90</span>
+        </div>
+        <div class="tabela-cta">
+            <a href="https://wa.me/5511999998888?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20enxoval%20Mon%20Petit-Jú" 
+               target="_blank" class="btn btn-whatsapp">
+                💬 Solicitar Orçamento via WhatsApp
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ===== CONTATO ===== -->
+<section class="contato" id="contato">
+    <h2>Entre em Contato</h2>
+    <div class="contato-grid">
+        <div class="contato-card">
+            <div class="icone">📷</div>
+            <h3>Instagram</h3>
+            <p>Acompanhe nosso trabalho</p>
+            <a href="https://www.instagram.com/fraldinhasmonpetit_ju/" target="_blank">
+                @fraldinhasmonpetit_ju
+            </a>
+            <br><br>
+            <a href="https://www.instagram.com/fraldinhasmonpetit_ju/" target="_blank" class="btn btn-instagram">
+                Seguir no Instagram
+            </a>
+        </div>
+        <div class="contato-card">
+            <div class="icone">💬</div>
+            <h3>WhatsApp</h3>
+            <p>Atendimento personalizado</p>
+            <a href="https://wa.me/5511999998888" target="_blank">
+                (11) 99999-8888
+            </a>
+            <br><br>
+            <a href="https://wa.me/5511999998888?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20enxoval%20Mon%20Petit-Jú" 
+               target="_blank" class="btn btn-whatsapp">
+                Falar no WhatsApp
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+    <p>© 2025 <strong>Mon Petit-Jú</strong> — Enxoval artesanal com amor ♡</p>
+</footer>
+
+</body>
+</html>
