@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon Petit-Jú | Enxoval Artesanal</title>
+    <title>Mon Petit-JÃº | Enxoval Artesanal</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&amp;family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0&amp;display=swap" rel="stylesheet">
@@ -70,14 +70,14 @@
         }
 
         h2::after {
-            content: '✦';
+            content: 'âœ¦';
             display: block;
             font-size: 1.2rem;
             color: var(--pink);
             margin-top: 0.3rem;
         }
 
-        /* ===== BOTÕES ===== */
+        /* ===== BOTÃ•ES ===== */
         .btn {
             display: inline-block;
             background: var(--pink);
@@ -210,7 +210,7 @@
             color: var(--pink);
         }
 
-        /* ===== ESPAÇO PARA O HEADER FIXO ===== */
+        /* ===== ESPAÃ‡O PARA O HEADER FIXO ===== */
         section[id] {
             scroll-margin-top: 80px;
         }
@@ -225,7 +225,7 @@
         }
 
         .hero::before {
-            content: '♡ ✦ ✿ ♡ ✦ ✿';
+            content: 'â™¡ âœ¦ âœ¿ â™¡ âœ¦ âœ¿';
             position: absolute;
             top: 10px;
             left: 50%;
@@ -386,7 +386,6 @@
         .flip-card:nth-child(2) .service-icon { color: #CF7893; }
         .flip-card:nth-child(3) .service-icon { color: #BE9B46; }
         .flip-card:nth-child(4) .service-icon { color: #9870A9; }
-        }
 
         .flip-card-front h3 {
             font-size: 1rem;
@@ -402,7 +401,7 @@
             text-align: center;
         }
 
-        /* ===== TABELA DE PREÇOS ===== */
+        /* ===== TABELA DE PREÃ‡OS ===== */
         .precos {
             padding: 4rem 5%;
             background: rgba(252, 228, 236, 0.80);
@@ -434,9 +433,23 @@
         }
 
         .tabela-item .preco {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            flex-shrink: 0;
             font-weight: 700;
             color: var(--pink);
             font-size: 1.1rem;
+            line-height: 1.2;
+            text-align: right;
+        }
+
+        .tabela-item .preco small {
+            color: #777;
+            font-size: 0.66rem;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
         }
 
         .tabela-cta {
@@ -560,12 +573,63 @@
             }
 
             .categoria-grid {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
                 gap: 1rem;
+                width: 100%;
+                max-width: 340px;
             }
 
             .flip-card {
-                width: 130px;
-                height: 180px;
+                width: 100%;
+                min-width: 0;
+                height: 205px;
+            }
+
+            .flip-card-front, .flip-card-back {
+                padding: 0.75rem;
+            }
+
+            .service-icon {
+                width: 50px;
+                height: 50px;
+                margin-bottom: 0.7rem;
+            }
+
+            .service-icon .material-symbols-outlined {
+                font-size: 30px;
+            }
+
+            .flip-card-front h3 {
+                max-width: 100%;
+                font-size: 0.92rem;
+                line-height: 1.25;
+                overflow-wrap: anywhere;
+            }
+
+            .flip-card-front p {
+                font-size: 0.76rem;
+                line-height: 1.3;
+            }
+
+            .flip-card-back img {
+                height: 120px;
+            }
+
+            .tabela-item {
+                align-items: flex-start;
+                gap: 0.75rem;
+            }
+
+            .tabela-item .produto {
+                min-width: 0;
+                font-size: 0.86rem;
+                line-height: 1.35;
+            }
+
+            .tabela-item .preco {
+                min-width: 88px;
+                font-size: 1rem;
             }
 
             .contato-card {
@@ -578,7 +642,7 @@
             }
         }
 
-        /* ===== ANIMAÇÕES ===== */
+        /* ===== ANIMAÃ‡Ã•ES ===== */
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-10px); }
@@ -594,18 +658,18 @@
 <!-- ===== HEADER ===== -->
 <header>
     <a href="#" class="logo">
-        <!-- 🖼️ LOGO: troque o src pelo caminho da sua imagem -->
-        <img class="logo-icon" src="imagens/logo.png" alt="Mon Petit-Jú">
+        <!-- ðŸ–¼ï¸ LOGO: troque o src pelo caminho da sua imagem -->
+        <img class="logo-icon" src="imagens/logo.png" alt="Mon Petit-JÃº">
         <div class="logo-text">
             <span class="mon">Mon</span>
-            <span class="petit-ju">Petit-<span>Jú</span></span>
+            <span class="petit-ju">Petit-<span>JÃº</span></span>
         </div>
     </a>
     <nav>
         <ul>
             <li><a href="#home">Home</a></li>
-            <li><a href="#catalogo">Catálogo</a></li>
-            <li><a href="#precos">Preços</a></li>
+            <li><a href="#catalogo">CatÃ¡logo</a></li>
+            <li><a href="#precos">PreÃ§os</a></li>
             <li><a href="#contato">Contato</a></li>
         </ul>
     </nav>
@@ -615,12 +679,12 @@
 <section class="hero" id="home">
     <div class="hero-content">
         <div class="rainbow-divider"></div>
-        <h1>Mon Petit-<span>Jú</span></h1>
-        <p class="subtitle">✨ Enxoval artesanal feito com amor para o seu bebê ✨</p>
+        <h1>Mon Petit-<span>JÃº</span></h1>
+        <p class="subtitle">âœ¨ Enxoval artesanal feito com amor para o seu bebÃª âœ¨</p>
         <p style="color:#888; margin-bottom:2rem;">
-            Peças únicas, delicadas e cheias de carinho para os primeiros momentos
+            PeÃ§as Ãºnicas, delicadas e cheias de carinho para os primeiros momentos
         </p>
-        <a href="#catalogo" class="btn">Ver Catálogo</a>
+        <a href="#catalogo" class="btn">Ver CatÃ¡logo</a>
     </div>
 </section>
 
@@ -635,10 +699,10 @@
                 <div class="flip-card-front">
                     <div class="service-icon" aria-hidden="true"><span class="material-symbols-outlined">child_friendly</span></div>
                     <h3>Kit Maternidade</h3>
-                    <p>5 peças</p>
+                    <p>5 peÃ§as</p>
                 </div>
                 <div class="flip-card-back">
-                    <!-- 🖼️ IMAGEM KIT: troque o src pelo caminho da foto -->
+                    <!-- ðŸ–¼ï¸ IMAGEM KIT: troque o src pelo caminho da foto -->
                     <img src="imagens/kit.jpg" alt="Kit Maternidade">
                     <p>Kit Maternidade Premium</p>
                 </div>
@@ -651,12 +715,12 @@
                 <div class="flip-card-front">
                     <div class="service-icon" aria-hidden="true"><span class="material-symbols-outlined">bed</span></div>
                     <h3>Mantas & Cobertores</h3>
-                    <p>Algodão egípcio</p>
+                    <p>AlgodÃ£o egÃ­pcio</p>
                 </div>
                 <div class="flip-card-back">
-                    <!-- 🖼️ IMAGEM MANTA: troque o src pelo caminho da foto -->
+                    <!-- ðŸ–¼ï¸ IMAGEM MANTA: troque o src pelo caminho da foto -->
                     <img src="imagens/manta.jpg" alt="Manta Baby">
-                    <p>Manta Baby Algodão</p>
+                    <p>Manta Baby AlgodÃ£o</p>
                 </div>
             </div>
         </div>
@@ -666,12 +730,12 @@
             <div class="flip-card-inner">
                 <div class="flip-card-front">
                     <div class="service-icon" aria-hidden="true"><span class="material-symbols-outlined">checkroom</span></div>
-                    <h3>Bodies & Macacões</h3>
+                    <h3>Bodies & MacacÃµes</h3>
                     <p>Manga longa/curta</p>
                 </div>
                 <div class="flip-card-back">
-                    <!-- 🖼️ IMAGEM BODY: troque o src pelo caminho da foto -->
-                    <img src="imagens/roupão.jpg" alt="Body Manga Longa">
+                    <!-- ðŸ–¼ï¸ IMAGEM BODY: troque o src pelo caminho da foto -->
+                    <img src="imagens/roupÃ£o.jpg" alt="Body Manga Longa">
                     <p>Body Manga Longa</p>
                 </div>
             </div>
@@ -682,11 +746,11 @@
             <div class="flip-card-inner">
                 <div class="flip-card-front">
                     <div class="service-icon" aria-hidden="true"><span class="material-symbols-outlined">bathtub</span></div>
-                    <h3>Toalhas & Acessórios</h3>
+                    <h3>Toalhas & AcessÃ³rios</h3>
                     <p>Com capuz</p>
                 </div>
                 <div class="flip-card-back">
-                    <!-- 🖼️ IMAGEM TOALHA: troque o src pelo caminho da foto -->
+                    <!-- ðŸ–¼ï¸ IMAGEM TOALHA: troque o src pelo caminho da foto -->
                     <img src="sua-foto-toalha.jpg" alt="Toalha com Capuz">
                     <p>Toalha com Capuz</p>
                 </div>
@@ -696,34 +760,34 @@
     </div>
 </section>
 
-<!-- ===== TABELA DE PREÇOS ===== -->
+<!-- ===== TABELA DE PREÃ‡OS ===== -->
 <section class="precos" id="precos">
-    <h2>Tabela de Preços</h2>
+    <h2>Tabela de PreÃ§os</h2>
     <div class="tabela-container">
         <div class="tabela-item">
-            <span class="produto">🌸 Kit Maternidade Premium (5 peças)</span>
-            <span class="preco">R$ 189,90</span>
+            <span class="produto">ðŸŒ¸ Kit Maternidade Premium (5 peÃ§as)</span>
+            <span class="preco"><small>A partir de</small>R$ 189,90</span>
         </div>
         <div class="tabela-item">
-            <span class="produto">🧸 Manta Baby Algodão Egípcio</span>
-            <span class="preco">R$ 79,90</span>
+            <span class="produto">ðŸ§¸ Manta Baby AlgodÃ£o EgÃ­pcio</span>
+            <span class="preco"><small>A partir de</small>R$ 79,90</span>
         </div>
         <div class="tabela-item">
-            <span class="produto">👕 Body Manga Longa Estampado</span>
-            <span class="preco">R$ 49,90</span>
+            <span class="produto">ðŸ‘• Body Manga Longa Estampado</span>
+            <span class="preco"><small>A partir de</small>R$ 49,90</span>
         </div>
         <div class="tabela-item">
-            <span class="produto">🛁 Toalha com Capuz + Luva</span>
-            <span class="preco">R$ 69,90</span>
+            <span class="produto">ðŸ› Toalha com Capuz + Luva</span>
+            <span class="preco"><small>A partir de</small>R$ 69,90</span>
         </div>
         <div class="tabela-item">
-            <span class="produto">💛 Fraldinha Bordada (unidade)</span>
-            <span class="preco">R$ 29,90</span>
+            <span class="produto">ðŸ’› Fraldinha Bordada (unidade)</span>
+            <span class="preco"><small>A partir de</small>R$ 29,90</span>
         </div>
         <div class="tabela-cta">
-            <a href="https://wa.me/5531989788356?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20enxoval%20Mon%20Petit-Jú"
+            <a href="https://wa.me/5531989788356?text=OlÃ¡!%20Quero%20saber%20mais%20sobre%20o%20enxoval%20Mon%20Petit-JÃº"
                target="_blank" class="btn btn-whatsapp">
-                💬 Solicitar Orçamento via WhatsApp
+                ðŸ’¬ Solicitar OrÃ§amento via WhatsApp
             </a>
         </div>
     </div>
@@ -734,7 +798,7 @@
     <h2>Entre em Contato</h2>
     <div class="contato-grid">
         <div class="contato-card">
-            <div class="icone">📷</div>
+            <div class="icone">ðŸ“·</div>
             <h3>Instagram</h3>
             <p>Acompanhe nosso trabalho</p>
             <a href="https://www.instagram.com/fraldinhasmonpetit_ju/" target="_blank">
@@ -746,14 +810,14 @@
             </a>
         </div>
         <div class="contato-card">
-            <div class="icone">💬</div>
+            <div class="icone">ðŸ’¬</div>
             <h3>WhatsApp</h3>
             <p>Atendimento personalizado</p>
             <a href="https://wa.me/5531989788356" target="_blank">
                 +55 (31) 98978-8356
             </a>
             <br><br>
-            <a href="https://wa.me/5531989788356?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20enxoval%20Mon%20Petit-Jú"
+            <a href="https://wa.me/5531989788356?text=OlÃ¡!%20Quero%20saber%20mais%20sobre%20o%20enxoval%20Mon%20Petit-JÃº"
                target="_blank" class="btn btn-whatsapp">
                 Falar no WhatsApp
             </a>
@@ -763,7 +827,7 @@
 
 <!-- ===== FOOTER ===== -->
 <footer>
-    <p>© 2026 <strong>Mon Petit-Jú</strong> — Enxoval artesanal com amor ♡</p>
+    <p>Â© 2026 <strong>Mon Petit-JÃº</strong> â€” Enxoval artesanal com amor â™¡</p>
 </footer>
 
 </body>
