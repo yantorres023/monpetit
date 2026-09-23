@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Mon Petit-Jú — enxovais personalizados, bordados para contar a história do seu bebê.">
+  <title>Mon Petit-Jú — Enxovais com história</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght,SOFT@9..144,500..700,0..100&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #273b39;
+      --ink-soft: #51635f;
+      --paper: #fffdf8;
+      --cream: #f7f0e6;
+      --blush: #f7dedf;
+      --rose: #be6575;
+      --lilac: #ded6ee;
+      --sage: #bfd0b0;
+      --butter: #f4df8a;
+      --line: #e7ddd1;
+      --white: #fff;
+      --shadow: 0 18px 48px rgba(61, 50, 38, .12);
+      --radius: 18px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: "DM Sans", sans-serif; line-height: 1.5; }
+    button, input, select { font: inherit; }
+    a { color: inherit; }
+    .shell { width: min(1180px, calc(100% - 48px)); margin: auto; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; color: var(--rose); font-size: .71rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+    .eyebrow::before { content: ""; width: 23px; height: 1px; background: currentColor; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2, h3 { font-family: "Fraunces", Georgia, serif; font-weight: 600; }
+    .btn { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; gap: 10px; padding: 12px 19px; border: 1px solid transparent; border-radius: 999px; text-decoration: none; font-size: .9rem; font-weight: 700; cursor: pointer; transition: transform .2s ease, box-shadow .2s ease, background .2s ease; }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(49, 53, 44, .16); }
+    .btn-primary { background: var(--ink); color: #fff; }
+    .btn-soft { background: #fff; border-color: var(--line); color: var(--ink); }
+    .btn-rose { background: var(--rose); color: #fff; }
+
+    header { position: sticky; z-index: 20; top: 0; background: rgba(255, 253, 248, .92); border-bottom: 1px solid rgba(231, 221, 209, .85); backdrop-filter: blur(13px); }
+    .nav { height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; flex-shrink: 0; }
+    .brand img { width: 45px; height: 45px; object-fit: cover; border-radius: 50%; }
+    .brand strong { display: block; font-family: "Fraunces", Georgia, serif; font-size: 1.2rem; line-height: 1; }
+    .brand span { display: block; margin-top: 4px; color: var(--rose); font-size: .57rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+    .menu { display: flex; gap: 25px; margin: 0; padding: 0; list-style: none; font-size: .84rem; font-weight: 700; }
+    .menu a { text-decoration: none; }
+    .menu a:hover { color: var(--rose); }
+    .menu-button { display: none; border: 0; background: none; color: var(--ink); font-size: 1.55rem; }
+    .nav .btn { min-height: 40px; padding: 9px 14px; font-size: .78rem; }
+
+    .hero { position: relative; overflow: hidden; padding: 68px 0 76px; background: linear-gradient(112deg, #fff9ef 0%, #f8e5e4 47%, #f2efe9 100%); }
+    .hero::before { content: ""; position: absolute; width: 590px; height: 590px; right: -250px; top: -360px; border: 1px solid rgba(190, 101, 117, .28); border-radius: 50%; box-shadow: 0 0 0 52px rgba(190, 101, 117, .04), 0 0 0 104px rgba(190, 101, 117, .03); }
+    .hero-grid { display: grid; grid-template-columns: 1.02fr .98fr; align-items: center; gap: 58px; position: relative; }
+    .hero h1 { max-width: 650px; margin: 14px 0 21px; font-size: clamp(3.35rem, 5.6vw, 5.75rem); line-height: .96; letter-spacing: -.055em; }
+    .hero h1 em { color: var(--rose); font-style: normal; }
+    .hero-copy { max-width: 510px; color: var(--ink-soft); font-size: 1.05rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 11px; margin-top: 28px; }
+    .trust { display: flex; align-items: center; gap: 10px; margin-top: 24px; color: var(--ink-soft); font-size: .8rem; }
+    .trust-mark { display: grid; width: 25px; height: 25px; place-items: center; background: var(--butter); border-radius: 50%; color: var(--ink); font-size: .75rem; }
+    .hero-gallery { display: grid; grid-template-columns: 1.1fr .83fr; align-items: end; gap: 12px; padding: 12px; position: relative; }
+    .hero-gallery::before { content: ""; position: absolute; inset: 46px 8px 13px; background: var(--sage); border-radius: 140px 24px 120px 28px; transform: rotate(3deg); }
+    .frame { z-index: 1; position: relative; overflow: hidden; background: var(--white); border: 7px solid #fff; box-shadow: var(--shadow); }
+    .frame img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    .frame-main { height: 425px; border-radius: 150px 150px 20px 20px; transform: rotate(-2deg); }
+    .frame-side { height: 245px; border-radius: 18px; transform: rotate(3deg); }
+    .image-note { position: absolute; z-index: 2; bottom: 28px; left: 2px; padding: 9px 12px; background: rgba(255,255,255,.94); border-radius: 10px; box-shadow: 0 6px 15px rgba(52,42,32,.09); color: var(--ink); font-size: .72rem; font-weight: 700; }
+
+    .quickstart { position: relative; z-index: 2; margin-top: -29px; }
+    .quickstart-inner { display: grid; grid-template-columns: .8fr 1.7fr; align-items: center; gap: 33px; padding: 19px 28px; background: var(--ink); color: white; border-radius: 16px; box-shadow: 0 14px 30px rgba(39,59,57,.2); }
+    .quickstart strong { font-family: "Fraunces", Georgia, serif; font-size: 1.25rem; line-height: 1.1; }
+    .quickstart p { margin: 5px 0 0; color: #d9e3de; font-size: .8rem; }
+    .journey { display: grid; grid-template-columns: repeat(3, 1fr); gap: 13px; }
+    .journey-item { display: flex; align-items: center; gap: 10px; padding-left: 14px; border-left: 1px solid rgba(255,255,255,.25); color: #edf4ef; font-size: .79rem; }
+    .journey-item b { display: grid; width: 25px; height: 25px; flex: 0 0 25px; place-items: center; border-radius: 50%; background: var(--butter); color: var(--ink); font-family: "Fraunces", Georgia, serif; }
+
+    section { padding: 94px 0; }
+    .heading { max-width: 660px; margin-bottom: 38px; }
+    .heading h2 { margin: 13px 0 0; font-size: clamp(2.25rem, 3.7vw, 3.7rem); line-height: 1.02; letter-spacing: -.045em; }
+    .heading p { margin: 14px 0 0; color: var(--ink-soft); }
+
+    .showcase { background: #fff; }
+    .collection { display: grid; grid-template-columns: 1.1fr 1fr 1fr; gap: 18px; }
+    .piece { min-height: 455px; position: relative; overflow: hidden; border-radius: var(--radius); background: var(--cream); }
+    .piece img { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform .5s ease; }
+    .piece:hover img { transform: scale(1.035); }
+    .piece:first-child { grid-row: span 1; }
+    .piece-copy { position: absolute; right: 13px; bottom: 13px; left: 13px; padding: 16px 17px; background: rgba(255, 253, 248, .94); border-radius: 12px; backdrop-filter: blur(7px); }
+    .piece-copy h3 { margin: 0 0 4px; font-size: 1.42rem; }
+    .piece-copy p { margin: 0; color: var(--ink-soft); font-size: .81rem; }
+    .piece-copy button { margin-top: 11px; padding: 0; border: 0; background: none; color: var(--rose); cursor: pointer; font-size: .78rem; font-weight: 700; }
+    .piece-copy button:hover { text-decoration: underline; }
+    .catalog-foot { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-top: 22px; padding-top: 21px; border-top: 1px solid var(--line); color: var(--ink-soft); font-size: .86rem; }
+
+    .atelier { background: var(--lilac); overflow: hidden; }
+    .atelier-grid { display: grid; grid-template-columns: .86fr 1.14fr; gap: 55px; align-items: center; }
+    .atelier-media { position: relative; min-height: 470px; }
+    .atelier-media::before { content: ""; position: absolute; inset: 25px 29px 0 0; background: var(--butter); border-radius: 50% 50% 24px 24px; }
+    .atelier-media img { position: absolute; inset: 0 49px 26px 0; width: calc(100% - 49px); height: calc(100% - 26px); object-fit: cover; border: 8px solid #fff; border-radius: 190px 190px 18px 18px; box-shadow: var(--shadow); }
+    .atelier-stamp { position: absolute; right: 0; bottom: 24px; width: 130px; height: 130px; display: grid; place-items: center; padding: 16px; border-radius: 50%; background: var(--rose); color: #fff; text-align: center; font-family: "Fraunces", Georgia, serif; font-size: .96rem; line-height: 1.05; transform: rotate(9deg); }
+    .atelier h2 { margin: 12px 0 17px; font-size: clamp(2.35rem, 4vw, 4rem); line-height: 1; letter-spacing: -.05em; }
+    .atelier > .shell p, .atelier-copy { color: #585563; }
+    .steps { display: grid; gap: 0; margin-top: 28px; }
+    .step { display: grid; grid-template-columns: 42px 1fr; gap: 14px; padding: 15px 0; border-top: 1px solid rgba(82,72,92,.18); }
+    .step:last-child { border-bottom: 1px solid rgba(82,72,92,.18); }
+    .step-no { width: 32px; height: 32px; display: grid; place-items: center; border-radius: 50%; background: #fff; color: var(--rose); font-family: "Fraunces", Georgia, serif; font-weight: 700; }
+    .step strong { display: block; margin: 1px 0 2px; font-size: .95rem; }
+    .step span { display: block; color: #686271; font-size: .82rem; }
+
+    .builder { background: var(--cream); }
+    .builder-grid { display: grid; grid-template-columns: .82fr 1.18fr; gap: 62px; align-items: start; }
+    .builder-intro { position: sticky; top: 105px; }
+    .builder-intro h2 { margin: 13px 0 15px; font-size: clamp(2.3rem, 3.8vw, 3.6rem); line-height: 1.02; letter-spacing: -.05em; }
+    .builder-intro p { max-width: 370px; color: var(--ink-soft); }
+    .builder-card { padding: 27px; background: #fffdf9; border: 1px solid #e9dfd3; border-radius: 20px; box-shadow: 0 13px 29px rgba(67,49,34,.08); }
+    .builder-card header { position: static; display: flex; align-items: flex-start; justify-content: space-between; gap: 15px; padding: 0 0 18px; background: transparent; border-bottom: 1px solid var(--line); backdrop-filter: none; }
+    .builder-card header h3 { margin: 0; font-size: 1.55rem; }
+    .builder-card header span { color: var(--ink-soft); font-size: .76rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 19px; }
+    label { display: block; color: var(--ink); font-size: .76rem; font-weight: 700; }
+    .label-note { display: block; margin-top: 3px; color: var(--ink-soft); font-size: .7rem; font-weight: 400; }
+    input, select { width: 100%; margin-top: 7px; padding: 12px 12px; background: #fff; border: 1px solid #dcd2c6; border-radius: 9px; color: var(--ink); outline: none; }
+    input:focus, select:focus { border-color: var(--rose); box-shadow: 0 0 0 3px rgba(190,101,117,.12); }
+    .choice-group { margin: 20px 0 0; padding: 0; border: 0; }
+    .choice-group legend { padding: 0; color: var(--ink); font-size: .76rem; font-weight: 700; }
+    .choices { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+    .choice { position: relative; cursor: pointer; }
+    .choice input { position: absolute; opacity: 0; pointer-events: none; }
+    .choice span { display: block; padding: 9px 12px; border: 1px solid #dcd2c6; border-radius: 999px; color: var(--ink-soft); font-size: .78rem; font-weight: 600; transition: .15s ease; }
+    .choice input:checked + span { border-color: var(--ink); background: var(--ink); color: #fff; }
+    .choice input:focus-visible + span { outline: 3px solid rgba(190,101,117,.35); outline-offset: 2px; }
+    .form-action { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-top: 25px; padding-top: 20px; border-top: 1px solid var(--line); }
+    .form-action p { margin: 0; color: var(--ink-soft); font-size: .72rem; }
+    .form-action .btn { flex-shrink: 0; }
+
+    .values { background: #fff; }
+    .value-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .value { padding: 25px 27px 26px 0; }
+    .value + .value { padding-left: 27px; border-left: 1px solid var(--line); }
+    .value-mark { color: var(--rose); font-family: "Fraunces", Georgia, serif; font-size: 1.42rem; }
+    .value h3 { margin: 7px 0 7px; font-size: 1.35rem; }
+    .value p { margin: 0; max-width: 280px; color: var(--ink-soft); font-size: .85rem; }
+
+    .contact { position: relative; overflow: hidden; padding: 94px 0; text-align: center; background: var(--ink); color: #fff; }
+    .contact::before, .contact::after { content: ""; position: absolute; width: 370px; height: 370px; border: 1px solid rgba(255,255,255,.16); border-radius: 50%; }
+    .contact::before { left: -190px; top: -190px; }
+    .contact::after { right: -190px; bottom: -190px; }
+    .contact .shell { position: relative; }
+    .contact .eyebrow { color: var(--butter); }
+    .contact h2 { max-width: 680px; margin: 14px auto 14px; font-size: clamp(2.6rem, 4.5vw, 4.5rem); line-height: 1; letter-spacing: -.055em; }
+    .contact p { max-width: 530px; margin: 0 auto 27px; color: #d7e2dc; }
+    .contact .btn-primary { background: var(--butter); color: var(--ink); }
+    .contact .btn-soft { border-color: rgba(255,255,255,.3); background: transparent; color: #fff; }
+    .contact-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; }
+    .contact small { display: block; margin-top: 23px; color: #b6c4bd; font-size: .75rem; }
+    footer { padding: 21px 0; background: #1f302f; color: #d0dcd5; font-size: .75rem; }
+    footer .shell { display: flex; align-items: center; justify-content: space-between; gap: 13px; flex-wrap: wrap; }
+    footer a { color: #fff; text-decoration: none; }
+    .whatsapp { position: fixed; z-index: 18; right: 21px; bottom: 21px; display: grid; width: 54px; height: 54px; place-items: center; border-radius: 50%; background: #25d366; color: #fff; box-shadow: 0 11px 26px rgba(37,211,102,.36); text-decoration: none; font-weight: 800; }
+    .whatsapp:hover { transform: scale(1.06); }
+
+    @media (max-width: 820px) {
+      .nav { height: 68px; }.menu-button { display: block; }.nav > .btn { display: none; }
+      .menu { display: none; position: absolute; top: 68px; right: 0; left: 0; padding: 16px 24px; flex-direction: column; align-items: flex-start; gap: 15px; background: #fffdf8; border-bottom: 1px solid var(--line); box-shadow: 0 13px 22px rgba(61,50,38,.08); }
+      .menu.open { display: flex; }.hero { padding: 52px 0 65px; }.hero-grid, .atelier-grid, .builder-grid { grid-template-columns: 1fr; gap: 38px; }.hero-gallery { max-width: 570px; margin: auto; width: 100%; }.quickstart-inner { grid-template-columns: 1fr; gap: 16px; }.journey { gap: 9px; }.journey-item { padding-left: 9px; }.collection { grid-template-columns: repeat(3, 1fr); }.piece { min-height: 390px; }.atelier-media { max-width: 500px; width: 100%; }.builder-intro { position: static; }.builder-intro p { max-width: 520px; }
+    }
+    @media (max-width: 560px) {
+      .shell { width: min(100% - 30px, 1180px); }.brand img { width: 40px; height: 40px; }.brand strong { font-size: 1.06rem; }.hero h1 { font-size: clamp(3rem, 14vw, 4.1rem); }.hero-actions, .contact-actions { display: grid; grid-template-columns: 1fr; }.hero-actions .btn, .contact-actions .btn { width: 100%; }.frame-main { height: 320px; }.frame-side { height: 196px; }.quickstart { margin-top: -22px; }.quickstart-inner { padding: 19px; }.journey { grid-template-columns: 1fr; gap: 12px; }.journey-item { border-left: 0; padding-left: 0; }.collection { grid-template-columns: 1fr; }.piece { min-height: 450px; }.atelier-media { min-height: 380px; }.atelier-media img { right: 30px; width: calc(100% - 30px); }.atelier-stamp { width: 108px; height: 108px; font-size: .78rem; }.form-row { grid-template-columns: 1fr; margin-top: 16px; }.builder-card { padding: 20px; }.form-action { flex-direction: column; align-items: stretch; }.form-action .btn { width: 100%; }.value-grid { grid-template-columns: 1fr; }.value, .value + .value { padding: 21px 0; border-left: 0; }.value + .value { border-top: 1px solid var(--line); } section, .contact { padding: 65px 0; }
+    }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; } }
+  </style>
+  <style>
+    /* ===== Seções adicionadas: demo banner, preços, logística, depoimentos, FAQ ===== */
+    .demo-banner { position: relative; z-index: 30; padding: 8px 0; background: var(--butter); color: var(--ink); text-align: center; font-size: .74rem; font-weight: 700; }
+    .price-tag { display: inline-flex; align-items: center; gap: 6px; margin-top: 9px; padding: 5px 11px; background: var(--blush); border-radius: 999px; color: var(--rose); font-size: .78rem; font-weight: 700; }
+    .price-note { color: var(--ink-soft); font-size: .7rem; font-weight: 400; }
+    .info-strip { background: #fff; border-block: 1px solid var(--line); }
+    .info-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+    .info-item { display: flex; gap: 12px; align-items: flex-start; padding: 22px 22px 22px 0; }
+    .info-item + .info-item { padding-left: 22px; border-left: 1px solid var(--line); }
+    .info-icon { display: grid; width: 38px; height: 38px; flex: 0 0 38px; place-items: center; background: var(--lavender-soft, #f2edfa); background: #f2edfa; border-radius: 50%; font-size: 1.05rem; }
+    .info-item strong { display: block; font-size: .9rem; margin-bottom: 2px; }
+    .info-item p { margin: 0; color: var(--ink-soft); font-size: .78rem; }
+    .testimonials { background: #fff; }
+    .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .testi { display: flex; flex-direction: column; gap: 14px; padding: 24px; background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); }
+    .testi-stars { color: var(--butter-dark, #d9a825); color: #d9a825; letter-spacing: 2px; font-size: .85rem; }
+    .testi p { margin: 0; color: var(--ink); font-size: .92rem; }
+    .testi p em { color: var(--ink-soft); display: block; margin-top: 5px; font-size: .76rem; font-style: normal; }
+    .testi-who { display: flex; align-items: center; gap: 11px; margin-top: auto; }
+    .testi-avatar { display: grid; width: 40px; height: 40px; place-items: center; border-radius: 50%; background: var(--blush); color: var(--rose); font-family: "Fraunces", Georgia, serif; font-weight: 700; }
+    .testi-who strong { display: block; font-size: .84rem; }
+    .testi-who span { display: block; color: var(--ink-soft); font-size: .72rem; }
+    .faq { background: var(--cream); }
+    .faq-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 55px; align-items: start; }
+    .faq-list { display: grid; gap: 11px; }
+    .faq-item { background: #fffdf9; border: 1px solid #e9dfd3; border-radius: 13px; overflow: hidden; }
+    .faq-item summary { display: flex; justify-content: space-between; align-items: center; gap: 14px; padding: 16px 18px; cursor: pointer; font-weight: 700; font-size: .92rem; list-style: none; }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after { content: "+"; color: var(--rose); font-size: 1.2rem; line-height: 1; }
+    .faq-item[open] summary::after { content: "–"; }
+    .faq-item p { margin: 0; padding: 0 18px 17px; color: var(--ink-soft); font-size: .85rem; }
+    .about-note { margin-top: 17px; padding: 16px 18px; background: rgba(255,255,255,.6); border-left: 3px solid var(--rose); border-radius: 0 12px 12px 0; font-size: .84rem; color: #585563; }
+    .about-note strong { display: block; margin-bottom: 4px; color: var(--ink); font-family: "Fraunces", Georgia, serif; font-size: .95rem; }
+    @media (max-width: 820px) {
+      .info-grid { grid-template-columns: 1fr 1fr; }
+      .info-item:nth-child(3) { padding-left: 0; border-left: 0; }
+      .testi-grid { grid-template-columns: 1fr; }
+      .faq-grid { grid-template-columns: 1fr; gap: 30px; }
+    }
+    @media (max-width: 560px) {
+      .info-grid { grid-template-columns: 1fr; }
+      .info-item, .info-item + .info-item { padding: 15px 0; border-left: 0; }
+    }
+    /* ===== Galeria de trabalhos reais ===== */
+    .gallery { background: #fff; }
+    .gallery-grid { columns: 3 240px; column-gap: 14px; }
+    .gallery-item { display: inline-block; width: 100%; margin: 0 0 14px; border-radius: 14px; background: var(--cream); box-shadow: 0 6px 18px rgba(61,50,38,.08); break-inside: avoid; overflow: hidden; }
+    .gallery-zoom { overflow: hidden; }
+    .gallery-zoom img { display: block; width: 100%; transition: transform .5s ease; transform-origin: center top; }
+    .gallery-item:hover .gallery-zoom img { transform: scale(1.05); }
+    .gallery-cap { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 11px 14px; }
+    .gallery-cap strong { display: block; font-family: "Fraunces", Georgia, serif; font-size: .95rem; line-height: 1.1; }
+    .gallery-cap span { display: block; color: var(--ink-soft); font-size: .72rem; margin-top: 2px; }
+    .gallery-foot { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-top: 20px; padding-top: 21px; border-top: 1px solid var(--line); color: var(--ink-soft); font-size: .86rem; }
+    @media (max-width: 820px) { .gallery-grid { columns: 2 180px; } }
+    @media (max-width: 560px) {
+      .gallery-grid { columns: 1; }
+      .gallery-cap { padding: 13px 14px; }
+      .gallery-cap strong { font-size: 1.04rem; }
+      .gallery-cap span { font-size: .78rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="demo-banner">Versão de demonstração — depoimentos, prazos e valores são ilustrativos, para aprovação.</div>
+  <header>
+    <div class="shell nav">
+      <a class="brand" href="#inicio"><img src="imagens/logo.png" alt="Mon Petit-Jú"><div><strong>Mon Petit-Jú</strong><span>enxovais personalizados</span></div></a>
+      <button class="menu-button" aria-label="Abrir menu" aria-expanded="false">☰</button>
+      <nav><ul class="menu"><li><a href="#colecao">Coleção</a></li><li><a href="#galeria">Galeria</a></li><li><a href="#atendimento">Como criar</a></li><li><a href="#montar">Montar pedido</a></li><li><a href="#duvidas">Dúvidas</a></li><li><a href="#contato">Contato</a></li></ul></nav>
+      <a class="btn btn-primary" href="#montar">Montar meu pedido <span>→</span></a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="shell hero-grid">
+        <div>
+          <span class="eyebrow">feito para a sua história</span>
+          <h1>O enxoval que começa com um <em>nome.</em></h1>
+          <p class="hero-copy">Bordados, cores e delicadezas escolhidos para transformar as primeiras peças do seu bebê em lembranças para guardar.</p>
+          <div class="hero-actions"><a class="btn btn-primary" href="#montar">Começar a personalizar <span>→</span></a><a class="btn btn-soft" href="#colecao">Ver inspirações</a></div>
+          <div class="trust"><span class="trust-mark">✦</span><span>Você conta a ideia. A Mon Petit-Jú cuida dos detalhes.</span></div>
+        </div>
+        <div class="hero-gallery" aria-label="Detalhes de enxovais Mon Petit-Jú"><div class="frame frame-main"><img src="imagens/roupão.jpg" alt="Peças de banho personalizadas em tons de lilás"></div><div class="frame frame-side"><img src="imagens/manta.jpg" alt="Manta rosa bordada com nome"></div><span class="image-note">bordado, cor e carinho</span></div>
+      </div>
+    </section>
+
+    <section class="quickstart" aria-label="Como funciona">
+      <div class="shell quickstart-inner">
+        <div><strong>Seu pedido, sem complicação.</strong><p>Uma conversa para reunir a sua ideia.</p></div>
+        <div class="journey"><div class="journey-item"><b>1</b><span>Escolha uma inspiração</span></div><div class="journey-item"><b>2</b><span>Conte os detalhes</span></div><div class="journey-item"><b>3</b><span>Chame no WhatsApp</span></div></div>
+      </div>
+    </section>
+
+    <section class="showcase" id="colecao">
+      <div class="shell">
+        <div class="heading"><span class="eyebrow">para imaginar o seu</span><h2>Peças que carregam um pedacinho da família.</h2><p>Estas são inspirações para começar. Cada pedido pode nascer de um nome, uma cor, um tema ou de uma memória que você quer ver bordada.</p></div>
+        <div class="collection">
+          <article class="piece"><img src="imagens/kit.jpg" alt="Kit bordado com fraldas e toalhas"><div class="piece-copy"><h3>Kit de fraldas</h3><p>Fraldas e toalhas coordenadas com bordado e acabamentos delicados.</p><span class="price-tag">A partir de R$ 89 <span class="price-note">(demo)</span></span><button type="button" data-piece="kit de fraldas">Quero partir desta inspiração →</button></div></article>
+          <article class="piece"><img src="imagens/manta.jpg" alt="Manta rosa com bordado personalizado"><div class="piece-copy"><h3>Mantas especiais</h3><p>Textura macia, nome bordado e uma composição pensada para o bebê.</p><span class="price-tag">A partir de R$ 120 <span class="price-note">(demo)</span></span><button type="button" data-piece="manta personalizada">Quero partir desta inspiração →</button></div></article>
+          <article class="piece"><img src="imagens/roupão.jpg" alt="Conjunto para banho de bebê personalizado"><div class="piece-copy"><h3>Hora do banho</h3><p>Toalhas, roupões e acessórios para deixar a rotina ainda mais afetiva.</p><span class="price-tag">A partir de R$ 145 <span class="price-note">(demo)</span></span><button type="button" data-piece="hora do banho">Quero partir desta inspiração →</button></div></article>
+        </div>
+        <div class="catalog-foot"><span>Não encontrou exatamente o que imagina? A melhor inspiração pode ser a sua.</span><a class="btn btn-soft" href="#montar">Contar minha ideia <span>→</span></a></div>
+      </div>
+    </section>
+
+    <section class="info-strip" aria-label="Prazos, entrega e pagamento">
+      <div class="shell info-grid">
+        <div class="info-item"><span class="info-icon">✂️</span><div><strong>Feito sob encomenda</strong><p>Prazo médio de 15 a 20 dias para produzir com calma (ilustrativo).</p></div></div>
+        <div class="info-item"><span class="info-icon">📦</span><div><strong>Envio para todo o Brasil</strong><p>Correios ou transportadora; frete calculado no atendimento (ilustrativo).</p></div></div>
+        <div class="info-item"><span class="info-icon">💳</span><div><strong>Pagamento facilitado</strong><p>Pix, cartão em até 3x sem juros* ou 50% na encomenda (ilustrativo).</p></div></div>
+        <div class="info-item"><span class="info-icon">💬</span><div><strong>Resposta no mesmo dia</strong><p>Orçamento rápido e sem compromisso pelo WhatsApp (ilustrativo).</p></div></div>
+      </div>
+    </section>
+
+    <section class="gallery" id="galeria" aria-label="Trabalhos que já entregamos">
+      <div class="shell">
+        <div class="heading"><span class="eyebrow">feito com as mãos da Jú</span><h2>Peças que já encantaram famílias.</h2><p>Trabalhos reais publicados no nosso Instagram — cada nome bordado carrega uma história. Toque em uma peça para pedir algo parecido.</p></div>
+        <div class="gallery-grid">
+          <figure class="gallery-item"><div class="gallery-zoom"><img src="imagens/ig/ig01.jpg" width="360" height="640" alt="Fralda e toalha bordadas com tema fazendinha e o nome Bryan" loading="lazy"></div><figcaption class="gallery-cap"><div><strong>Bryan</strong><span>fralda tema fazendinha</span></div><button type="button" class="product-link" data-piece="uma fralda tema fazendinha como a do Bryan" aria-label="Pedir parecido com a fralda do Bryan">quero →</button></figcaption></figure>
+          <figure class="gallery-item"><div class="gallery-zoom"><img src="imagens/ig/ig03.jpg" width="360" height="640" alt="Fralda bordada com tema safari e o nome Heitor" loading="lazy"></div><figcaption class="gallery-cap"><div><strong>Heitor</strong><span>fralda tema safari</span></div><button type="button" class="product-link" data-piece="uma fralda tema safari como a do Heitor" aria-label="Pedir parecido com a fralda do Heitor">quero →</button></figcaption></figure>
+          <figure class="gallery-item"><div class="gallery-zoom"><img src="imagens/ig/ig05.jpg" width="360" height="640" alt="Toalhas bordadas com monograma dourado e renda, nome Letícia" loading="lazy"></div><figcaption class="gallery-cap"><div><strong>Letícia</strong><span>toalhas com monograma e renda</span></div><button type="button" class="product-link" data-piece="toalhas com monograma e renda como as da Letícia" aria-label="Pedir parecido com as toalhas da Letícia">quero →</button></figcaption></figure>
+          <figure class="gallery-item"><div class="gallery-zoom"><img src="imagens/ig/ig06.jpg" width="547" height="640" alt="Necessaire espaço bordada com o nome João" loading="lazy"></div><figcaption class="gallery-cap"><div><strong>João</strong><span>necessaire espaço bordada</span></div><button type="button" class="product-link" data-piece="uma necessaire espaço como a do João" aria-label="Pedir parecido com a necessaire do João">quero →</button></figcaption></figure>
+          <figure class="gallery-item"><div class="gallery-zoom"><img src="imagens/ig/ig07.jpg" width="360" height="640" alt="Roupão de bebê bordado com tema astronauta e o nome João" loading="lazy"></div><figcaption class="gallery-cap"><div><strong>João</strong><span>roupão tema astronauta</span></div><button type="button" class="product-link" data-piece="um roupão tema astronauta como o do João" aria-label="Pedir parecido com o roupão do João">quero →</button></figcaption></figure>
+          <figure class="gallery-item"><div class="gallery-zoom"><img src="imagens/ig/ig08.jpg" width="514" height="640" alt="Toalha rosa bordada com tema Rapunzel e o nome Maria Eduarda" loading="lazy"></div><figcaption class="gallery-cap"><div><strong>Maria Eduarda</strong><span>toalha tema Rapunzel</span></div><button type="button" class="product-link" data-piece="uma toalha tema princesa como a da Maria Eduarda" aria-label="Pedir parecido com a toalha da Maria Eduarda">quero →</button></figcaption></figure>
+          <figure class="gallery-item"><div class="gallery-zoom"><img src="imagens/ig/ig09.jpg" width="360" height="640" alt="Toalha bordada com girafa, elefante e leão, nome José Lucas" loading="lazy"></div><figcaption class="gallery-cap"><div><strong>José Lucas</strong><span>toalha bichinhos e xadrez azul</span></div><button type="button" class="product-link" data-piece="uma toalha com bichinhos como a do José Lucas" aria-label="Pedir parecido com a toalha do José Lucas">quero →</button></figcaption></figure>
+          <figure class="gallery-item"><div class="gallery-zoom"><img src="imagens/ig/ig10.jpg" width="360" height="640" alt="Fraldas bordadas com borboletas e flores em tons pastel" loading="lazy"></div><figcaption class="gallery-cap"><div><strong>Borboletas</strong><span>fraldas floridas em tons pastel</span></div><button type="button" class="product-link" data-piece="fraldas com borboletas e flores" aria-label="Pedir fraldas com borboletas e flores">quero →</button></figcaption></figure>
+          <figure class="gallery-item"><div class="gallery-zoom"><img src="imagens/ig/ig11.jpg" width="360" height="640" alt="Fralda bordada com tema cowboy e o nome David, com peça floral" loading="lazy"></div><figcaption class="gallery-cap"><div><strong>David</strong><span>fralda tema cowboy</span></div><button type="button" class="product-link" data-piece="uma fralda tema cowboy como a do David" aria-label="Pedir parecido com a fralda do David">quero →</button></figcaption></figure>
+        </div>
+        <div class="gallery-foot"><span>Mais peças e vídeos no nosso Instagram.</span><a class="btn btn-soft" href="https://www.instagram.com/fraldinhasmonpetit_ju/" target="_blank" rel="noopener">Ver no Instagram ↗</a></div>
+      </div>
+    </section>
+
+    <section class="atelier" id="atendimento">
+      <div class="shell atelier-grid">
+        <div class="atelier-media"><img src="imagens/kit.jpg" alt="Bordados coloridos em enxoval infantil"><span class="atelier-stamp">criado<br>com a sua<br>ideia</span></div>
+        <div><span class="eyebrow">atendimento próximo</span><h2>Não é só escolher uma peça. É criar a sua.</h2><p class="atelier-copy">O caminho é leve: você compartilha o que procura e a conversa vai dando forma ao seu enxoval.</p><div class="steps"><div class="step"><b class="step-no">1</b><div><strong>Traga o começo da ideia</strong><span>Uma peça, um nome, uma cor ou só aquela sensação que você quer traduzir.</span></div></div><div class="step"><b class="step-no">2</b><div><strong>Defina os detalhes</strong><span>Compartilhe o que deseja personalizar e a composição que imagina.</span></div></div><div class="step"><b class="step-no">3</b><div><strong>Converse pelo WhatsApp</strong><span>Envie seu pedido de um jeito organizado para iniciar o atendimento.</span></div></div></div></div>
+      </div>
+    </section>
+
+    <section class="builder" id="montar">
+      <div class="shell builder-grid">
+        <div class="builder-intro"><span class="eyebrow">assistente de pedido</span><h2>Vamos deixar sua ideia pronta para a conversa.</h2><p>Preencha o que já souber. Ao final, o WhatsApp abre com um resumo do seu pedido — assim fica mais fácil começar.</p></div>
+        <form class="builder-card" id="brief-form">
+          <header><div><h3>Meu enxoval</h3><span>Leva menos de um minuto.</span></div><span aria-hidden="true">01—04</span></header>
+          <div class="form-row"><label>Nome do bebê<input name="nome" type="text" placeholder="Ex.: Ana Júlia" autocomplete="off"></label><label>Em que momento você está?<select name="momento"><option value="ainda estou imaginando">Ainda estou imaginando</option><option value="montando o enxoval">Montando o enxoval</option><option value="procurando um presente">Procurando um presente</option></select></label></div>
+          <fieldset class="choice-group"><legend>Por onde quer começar?<span class="label-note">Escolha uma opção</span></legend><div class="choices"><label class="choice"><input type="radio" name="peca" value="kit de fraldas" checked><span>Kit de fraldas</span></label><label class="choice"><input type="radio" name="peca" value="manta personalizada"><span>Manta</span></label><label class="choice"><input type="radio" name="peca" value="hora do banho"><span>Hora do banho</span></label><label class="choice"><input type="radio" name="peca" value="ainda preciso de ajuda para escolher"><span>Quero ajuda</span></label><label class="choice" id="inspiracao-choice" hidden><input type="radio" name="peca" value=""><span>Da galeria</span></label></div></fieldset>
+          <fieldset class="choice-group"><legend>Qual clima combina com a sua ideia?<span class="label-note">Escolha uma opção</span></legend><div class="choices"><label class="choice"><input type="radio" name="estilo" value="delicado e clássico" checked><span>Delicado e clássico</span></label><label class="choice"><input type="radio" name="estilo" value="colorido e lúdico"><span>Colorido e lúdico</span></label><label class="choice"><input type="radio" name="estilo" value="leve e minimalista"><span>Leve e minimalista</span></label><label class="choice"><input type="radio" name="estilo" value="ainda vou decidir"><span>Ainda vou decidir</span></label></div></fieldset>
+          <div class="form-row"><label>Cor ou tema que você imagina<input name="tema" type="text" placeholder="Ex.: lavanda, safari, flores…" autocomplete="off"></label><label>Detalhe importante<input name="detalhe" type="text" placeholder="Ex.: bordar o nome" autocomplete="off"></label></div>
+          <div class="form-action"><p>O resumo será enviado apenas quando você tocar no botão.</p><button class="btn btn-rose" type="submit">Enviar minha ideia <span>→</span></button></div>
+        </form>
+      </div>
+    </section>
+
+    <section class="values">
+      <div class="shell"><div class="heading"><span class="eyebrow">o toque Mon Petit-Jú</span><h2>Uma peça para usar hoje e lembrar depois.</h2></div><div class="value-grid"><div class="value"><span class="value-mark">01</span><h3>Tem significado</h3><p>O nome e os detalhes fazem cada composição ter a cara de quem vai recebê-la.</p></div><div class="value"><span class="value-mark">02</span><h3>Nasce na conversa</h3><p>Você não precisa chegar com tudo decidido para começar a imaginar.</p></div><div class="value"><span class="value-mark">03</span><h3>Vira memória</h3><p>Os primeiros cuidados merecem objetos que guardem afeto e presença.</p></div></div></div>
+    </section>
+
+    <section class="testimonials" aria-label="Depoimentos de clientes">
+      <div class="shell">
+        <div class="heading"><span class="eyebrow">quem já recebeu</span><h2>Histórias que chegaram bordadas.</h2><p>Depoimentos ilustrativos de demonstração — serão substituídos por mensagens reais de clientes.</p></div>
+        <div class="testi-grid">
+          <article class="testi"><span class="testi-stars">★★★★★</span><p>“O kit de fraldas com o nome da Alice ficou um amor. A qualidade do bordado é linda, deu para ver o cuidado em cada detalhe.”<em>Depoimento fictício para demonstração</em></p><div class="testi-who"><span class="testi-avatar">C</span><div><strong>Camila R.</strong><span>mãe da Alice · Belo Horizonte/MG</span></div></div></article>
+          <article class="testi"><span class="testi-stars">★★★★★</span><p>“Encomendei a manta para o chá de bebê da minha irmã e foi o presente mais comentado da festa. Embalagem delicada e chegou antes do prazo.”<em>Depoimento fictício para demonstração</em></p><div class="testi-who"><span class="testi-avatar">P</span><div><strong>Patrícia M.</strong><span>tia do Theo · Contagem/MG</span></div></div></article>
+          <article class="testi"><span class="testi-stars">★★★★★</span><p>“O roupão com capuz virou a peça favorita do banho do Miguel. Atendimento paciente, me ajudaram a escolher as cores.”<em>Depoimento fictício para demonstração</em></p><div class="testi-who"><span class="testi-avatar">J</span><div><strong>Juliana S.</strong><span>mãe do Miguel · Ipatinga/MG</span></div></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq" id="duvidas">
+      <div class="shell faq-grid">
+        <div>
+          <span class="eyebrow">dúvidas frequentes</span>
+          <h2 style="margin: 13px 0 0; font-size: clamp(2.1rem, 3.4vw, 3.2rem); line-height: 1.05; letter-spacing: -.045em;">Antes de encomendar.</h2>
+          <div class="about-note"><strong>Quem borda é a Jú.</strong>A Mon Petit-Jú nasceu do amor por tecidos e bordado: cada peça é preparada à mão, uma encomenda de cada vez. <em style="color: #9b8fa3; font-size: .72rem;">(texto ilustrativo)</em></div>
+        </div>
+        <div class="faq-list">
+          <details class="faq-item"><summary>Qual é o prazo de produção?</summary><p>Cada peça é feita sob encomenda. O prazo médio é de 15 a 20 dias após a confirmação dos detalhes — para datas especiais, chame antes no WhatsApp (valores ilustrativos).</p></details>
+          <details class="faq-item"><summary>Vocês enviam para todo o Brasil?</summary><p>Sim! Enviamos por correios ou transportadora, com frete calculado conforme o CEP no atendimento (ilustrativo).</p></details>
+          <details class="faq-item"><summary>Como funciona o pagamento?</summary><p>Pix, cartão de crédito em até 3x sem juros* ou 50% de sinal para iniciar a produção e o restante na entrega (condições ilustrativas).</p></details>
+          <details class="faq-item"><summary>Posso enviar minha própria ideia ou foto de referência?</summary><p>Pode e deve! A peça nasce da sua ideia: envie nomes, cores, temas e referências pelo WhatsApp que a gente transforma em bordado.</p></details>
+          <details class="faq-item"><summary>Como cuidar das peças bordadas?</summary><p>Lavar à mão ou no ciclo delicado, com sabão neutro, e secar à sombra mantém o bordado bonito por muito mais tempo (recomendação ilustrativa).</p></details>
+          <details class="faq-item"><summary>Quanto custa um pedido personalizado?</summary><p>Depende da composição: as faixas “a partir de” no catálogo dão uma referência, e o orçamento exato sai rápido pelo WhatsApp (valores de demonstração).</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contato"><div class="shell"><span class="eyebrow">vamos conversar</span><h2>Tem uma ideia para o enxoval?</h2><p>Chame a Mon Petit-Jú, conte o que você está imaginando e comece pelo detalhe que mais importa.</p><div class="contact-actions"><a class="btn btn-primary" href="https://wa.me/5531989788356?text=Olá!%20Quero%20conversar%20sobre%20um%20enxoval%20personalizado." target="_blank" rel="noopener">Conversar no WhatsApp <span>→</span></a><a class="btn btn-soft" href="https://www.instagram.com/fraldinhasmonpetit_ju/" target="_blank" rel="noopener">Ver no Instagram ↗</a></div><small>@fraldinhasmonpetit_ju</small></div></section>
+  </main>
+  <footer><div class="shell"><span>© 2026 Mon Petit-Jú — Enxovais personalizados.</span><a href="https://www.instagram.com/fraldinhasmonpetit_ju/" target="_blank" rel="noopener">Instagram</a></div></footer>
+  <a class="whatsapp" href="https://wa.me/5531989788356?text=Olá!%20Quero%20conversar%20sobre%20um%20enxoval%20personalizado." aria-label="Conversar pelo WhatsApp" title="Conversar pelo WhatsApp" target="_blank" rel="noopener">W</a>
+  <script>
+    const menuButton = document.querySelector('.menu-button');
+    const menu = document.querySelector('.menu');
+    menuButton.addEventListener('click', () => {
+      const isOpen = menu.classList.toggle('open');
+      menuButton.setAttribute('aria-expanded', String(isOpen));
+      menuButton.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
+      menuButton.textContent = isOpen ? '×' : '☰';
+    });
+    menu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      menu.classList.remove('open'); menuButton.setAttribute('aria-expanded', 'false'); menuButton.setAttribute('aria-label', 'Abrir menu'); menuButton.textContent = '☰';
+    }));
+    const waBase = 'https://wa.me/5531989788356?text=';
+    const customChoice = document.querySelector('#inspiracao-choice');
+    const customRadio = customChoice.querySelector('input');
+    const pieceRadios = [...document.querySelectorAll('input[name="peca"]')];
+    pieceRadios.filter(radio => radio !== customRadio).forEach(radio => radio.addEventListener('change', () => {
+      if (radio.checked) customChoice.hidden = true;
+    }));
+    document.querySelectorAll('[data-piece]').forEach(button => button.addEventListener('click', () => {
+      const existing = pieceRadios.find(radio => radio !== customRadio && radio.value === button.dataset.piece);
+      let selectedRadio;
+      if (existing) {
+        existing.click();
+        selectedRadio = existing;
+      } else {
+        customRadio.value = button.dataset.piece;
+        customChoice.querySelector('span').textContent = 'Da galeria: ' + (button.closest('.gallery-item')?.querySelector('.gallery-cap strong')?.textContent || 'peça escolhida');
+        customChoice.hidden = false;
+        customRadio.checked = true;
+        selectedRadio = customRadio;
+      }
+      document.querySelector('#montar').scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
+      selectedRadio.focus({ preventScroll: true });
+    }));
+    document.querySelector('#brief-form').addEventListener('submit', event => {
+      event.preventDefault();
+      const data = new FormData(event.currentTarget);
+      const name = data.get('nome')?.trim() || 'ainda não definido';
+      const message = [
+        'Olá! Quero montar um enxoval personalizado.',
+        '',
+        'Nome do bebê: ' + name,
+        'Momento: ' + data.get('momento'),
+        'Peça para começar: ' + data.get('peca'),
+        'Estilo: ' + data.get('estilo'),
+        'Cor ou tema: ' + (data.get('tema')?.trim() || 'a definir'),
+        'Detalhe importante: ' + (data.get('detalhe')?.trim() || 'a definir')
+      ].join('\n');
+      window.open(waBase + encodeURIComponent(message), '_blank', 'noopener');
+    });
+  </script>
+</body>
+</html>
